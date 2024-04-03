@@ -23,11 +23,9 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/caradmin', [CarController::class, "cars"])->name("caradmin");
-   
+
     Route::post('/caradmin', [CarController::class, "storeCar"])->name("registerCaradmin");
     Route::post('/logout', [AuthController::class, "logout"])->name("logout");
-
-    
 });
 
 
@@ -68,16 +66,20 @@ Route::get('/', function () {
         )
         ->get();
 
-    return view('welcome', compact("cars"));
+    $users = User::all();
+
+    return view('welcome', compact("cars", "users"));
 })->name('home');
+
 
 Route::get('/dealers', function () {
 
     $users = User::all();
 
-    return view('pages.dealers',compact('users'));
-
+    return view('pages.dealers', compact('users'));
 })->name('dealers');
+
+
 
 
 Route::get('/login', function () {
@@ -91,9 +93,11 @@ Route::get('/admin', function () {
 
 
 
-Route::get('/customer', function () {
-    return view('pages.customer');
+Route::get('/customer/{id}', function ($id) {
+    $carId = $id;
+    return view('pages.customer', compact('carId'));
 })->name('customer');
+
 
 Route::get('/thankyou', function () {
     return view('pages.thankyou');

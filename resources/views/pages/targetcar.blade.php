@@ -51,8 +51,10 @@
                 </div>
               </div>
             </div>
-            <a href="{{route('customer')}}" class="btn btn-success ms-3">BUY</a>
-
+            <a type="submit" class="btn btn-outline-dark flex-shrink-0" href="{{ route('customer',['id' => $car->inventory_id]) }}" type="button">
+              <i class="bi-cart-fill me-1"></i>
+              Buy
+            </a>
             <div class="property-summary justify-content-evenly">
               <div class="row">
                 <div class="col-sm-12">

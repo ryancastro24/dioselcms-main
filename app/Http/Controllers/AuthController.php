@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Purchase;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,7 @@ class AuthController extends Controller
     {
 
 
-      
+
 
         Validator::make($request->all(), [
             'name' =>  'required',
@@ -30,9 +31,8 @@ class AuthController extends Controller
         if ($request->hasFile('image')) {
             // Upload image
             $image = $request->file('image');
-            $imageName = time().'.'.$image->extension();
-            $image->storeAs('dealercontainer', $imageName, 'public'); // Adjust the storage path as needed
-        
+            $imageName = time() . '.' . $image->extension();
+            $image->storeAs('dealercontainer', $imageName, 'public');
         }
 
 
@@ -99,12 +99,17 @@ class AuthController extends Controller
 
 
 
-        Customer::create([
+        $customer = Customer::create([
             'name' =>  $request->name,
             'address' => $request->address,
             'gender' => $request->gender,
             'phone' => $request->phone,
             'annual_income' => $request->annual_income,
+        ]);
+
+        Purchase::create([
+            'customer_id' => $customer->customer_id,
+            'inventory_id' => $request->car_id,
         ]);
 
 

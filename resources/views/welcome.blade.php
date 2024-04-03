@@ -85,37 +85,32 @@
 
       <!-- Login Form and Dealers Link in the Same Container -->
       <div class="d-flex justify-content-evenly">
-      @guest
-    
-    <a
-      href="{{ route('login') }}"
-      class="primary-btn"
-      style="
+        @guest
+
+        <a href="{{ route('login') }}" class="primary-btn" style="
         background-color: #2eca6a;
         color: rgb(255, 255, 255);
         text-decoration: none;
         display: block;
         padding: 5px;
-      "
-    >
-      Login
-    </a>
+      ">
+          Login
+        </a>
 
-    @else
+        @else
 
-     <!-- User is logged in -->
-    <a href="{{ route('logout') }}"
-      onclick="event.preventDefault();
+        <!-- User is logged in -->
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-        Logout
-    </a>
+          Logout
+        </a>
 
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
-@endguest
-      <!-- End of Login Form and Dealers Link Container -->
-    </div>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+        </form>
+        @endguest
+        <!-- End of Login Form and Dealers Link Container -->
+      </div>
   </nav>
   <!-- End Header/Navbar -->
 
@@ -251,263 +246,165 @@
     </section>
     <!-- End Latest Properties Section -->
 
-    <!-- ======= Agents Section ======= -->
-    <section class="section-agents section-t8">
+    <!-- ======= Dealers ======= -->
+
+
+    <section class="agents-grid grid">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="title-wrap d-flex justify-content-between">
               <div class="title-box">
-                <h2 class="title-a text-white">Best Dealers</h2>
-              </div>
-              <div class="title-link">
-                <a href="dealers-grid.html">
-                  <span class="bi bi-chevron-right"></span>
-                </a>
+                <h2 class="title-a text-white">TOP 3 DEALERS</h2>
               </div>
             </div>
           </div>
+          @foreach($users as $user)
+          <div class="col-md-4">
+            <div class="card-box-d">
+              <div class="card-img-d">
+                <img src="{{ asset('storage/dealercontainer/' . $user->image) }}" class="rounded-circle mx-auto d-block" alt="" height="300px" width="300px" />
+              </div>
+              <div class="card-overlay card-overlay-hover">
+                <div class="card-header-d">
+                  <div class="card-title-d align-self-center">
+                    <h3 class="title-d">
+                      <a href="angelie.html" class="link-two">{{$user->name}}<br /> </a>
+                    </h3>
+                  </div>
+                </div>
+                <div class="card-body-d">
+                  <p class="content-d color-text-a">
+                    Sed porttitor lectus nibh, Cras ultricies ligula sed magna
+                    dictum porta two.
+                  </p>
+                  <div class="info-agents color-a">
+                    <p><strong>Email: </strong> {{$user->email}}</p>
+                  </div>
+                </div>
+                <div class="card-footer-d">
+                  <div class="socials-footer d-flex justify-content-center">
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <a href="https://www.facebook.com/angelie.maribao.7" target="_blank" class="link-one">
+                          <i class="bi bi-facebook" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="#" class="link-one">
+                          <i class="bi bi-twitter" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="#" class="link-one">
+                          <i class="bi bi-instagram" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="#" class="link-one">
+                          <i class="bi bi-linkedin" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          @endforeach
+
         </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card-box-d">
-              <div class="card-img-d">
-                <img src="assets/img/1.png" alt="" class="img-d img-fluid" />
-              </div>
-              <div class="card-overlay card-overlay-hover">
-                <div class="card-header-d">
-                  <div class="card-title-d align-self-center">
-                    <h3 class="title-d">
-                      <a href="angelie.html" class="link-two">Angelie Maribao <br /> </a>
-                    </h3>
-                  </div>
-                </div>
-                <div class="card-body-d">
-                  <p class="content-d color-text-a">
-                    <!-- Sed porttitor lectus nibh, Cras ultricies ligula sed magna
-                      dictum porta two. -->
-                  </p>
-                  <div class="info-agents color-a">
-                    <p><strong>Phone: </strong> 09123456789</p>
-                    <p><strong>Email: </strong> angelbabyxd@gmail.com</p>
-                  </div>
-                </div>
-                <div class="card-footer-d">
-                  <div class="socials-footer d-flex justify-content-center">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-box-d">
-              <div class="card-img-d">
-                <img src="assets/img/2.png" alt="" class="img-d img-fluid" />
-              </div>
-              <div class="card-overlay card-overlay-hover">
-                <div class="card-header-d">
-                  <div class="card-title-d align-self-center">
-                    <h3 class="title-d">
-                      <a href="edra.html" class="link-two">Edrachiel Castilla <br />
-                      </a>
-                    </h3>
-                  </div>
-                </div>
-                <div class="card-body-d">
-                  <p class="content-d color-text-a">
-                    <!-- Sed porttitor lectus nibh, Cras ultricies ligula sed magna
-                      dictum porta two. -->
-                  </p>
-                  <div class="info-agents color-a">
-                    <p><strong>Phone: </strong> 09093723907</p>
-                    <p><strong>Email: </strong> edura@gmail.com</p>
-                  </div>
-                </div>
-                <div class="card-footer-d">
-                  <div class="socials-footer d-flex justify-content-center">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-box-d">
-              <div class="card-img-d">
-                <img src="assets/img/3.png" alt="" class="img-d img-fluid" />
-              </div>
-              <div class="card-overlay card-overlay-hover">
-                <div class="card-header-d">
-                  <div class="card-title-d align-self-center">
-                    <h3 class="title-d">
-                      <a href="eminga.html" class="link-two">Jolly Mae Laroda <br />
-                      </a>
-                    </h3>
-                  </div>
-                </div>
-                <div class="card-body-d">
-                  <p class="content-d color-text-a">
-                    <!-- Sed porttitor lectus nibh, Cras ultricies ligula sed magna
-                      dictum porta two. -->
-                  </p>
-                  <div class="info-agents color-a">
-                    <p><strong>Phone: </strong> 09143231456</p>
-                    <p><strong>Email: </strong> eminga@gmail.com</p>
-                  </div>
-                </div>
-                <div class="card-footer-d">
-                  <div class="socials-footer d-flex justify-content-center">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      </div>
+      </div>
+    </section>
+
+
+
+    <!-- End Agents Grid-->
+  </main>
+  <!-- End #main -->
+
+  <!-- ======= Testimonials Section ======= -->
+  <section class="section-testimonials section-t8 nav-arrow-a">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a text-white">Latest Cars</h2>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- End Agents Section -->o 
 
-    <!-- ======= Testimonials Section ======= -->
-    <section class="section-testimonials section-t8 nav-arrow-a">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="title-wrap d-flex justify-content-between">
-              <div class="title-box">
-                <h2 class="title-a text-white">Latest Cars</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="testimonial-carousel" class="swiper">
-          <div class="swiper-wrapper">
-            <div class="carousel-item-a swiper-slide">
-              <div class="testimonials-box">
-                <div class="row">
-                  <div class="col-sm-12 col-md-6">
-                    <div class="testimonial-img">
-                      <img src="assets/img/chevrolet.png" alt="" class="img-fluid" />
-                    </div>
+      <div id="testimonial-carousel" class="swiper">
+        <div class="swiper-wrapper">
+          <div class="carousel-item-a swiper-slide">
+            <div class="testimonials-box">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                  <div class="testimonial-img">
+                    <img src="assets/img/chevrolet.jpg" alt="" class="img-fluid" />
                   </div>
-                  <div class="col-sm-12 col-md-6">
-                    <div class="testimonial-ico">
-                      <i class="bi bi-chat-quote-fill"></i>
-                    </div>
-                    <div class="testimonials-content">
-                      <p class="testimonial-text">
-                        The Chevrolet Traverse is a midsize SUV made by
-                        General Motors released on January 12, 2024.
-                      </p>
-                    </div>
-                    <div class="testimonial-author-box">
-                      <img src="assets/img/chevrolet.png" alt="" class="testimonial-avatar" />
-                      <h5 class="testimonial-author text-white">Chevrolet Traverse</h5>
-                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <div class="testimonial-ico">
+                    <i class="bi bi-chat-quote-fill"></i>
+                  </div>
+                  <div class="testimonials-content">
+                    <p class="testimonial-text">
+                      The Chevrolet Traverse is a midsize SUV made by
+                      General Motors released on January 12, 2024.
+                    </p>
+                  </div>
+                  <div class="testimonial-author-box">
+                    <img src="assets/img/chevrolet.jpg" alt="" class="testimonial-avatar" />
+                    <h5 class="testimonial-author text-white">Chevrolet Traverse</h5>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- End carousel item -->
+          </div>
+          <!-- End carousel item -->
 
-            <div class="carousel-item-a swiper-slide">
-              <div class="testimonials-box">
-                <div class="row">
-                  <div class="col-sm-12 col-md-6">
-                    <div class="testimonial-img">
-                      <img src="assets/img/gmc.jpg" alt="" class="img-fluid" />
-                    </div>
+          <div class="carousel-item-a swiper-slide">
+            <div class="testimonials-box">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                  <div class="testimonial-img">
+                    <img src="assets/img/bluetesla.jpg" alt="" class="img-fluid" />
                   </div>
-                  <div class="col-sm-12 col-md-6">
-                    <div class="testimonial-ico">
-                      <i class="bi bi-chat-quote-fill"></i>
-                    </div>
-                    <div class="testimonials-content">
-                      <p class="testimonial-text">
-                        The GMC Sierra is a strong and versatile pickup truck
-                        with powerful towing capabilities.
-                      </p>
-                    </div>
-                    <div class="testimonial-author-box">
-                      <img src="assets/img/gmc.jpg" alt="" class="testimonial-avatar" />
-                      <h5 class="testimonial-author">GMC Sierra</h5>
-                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <div class="testimonial-ico">
+                    <i class="bi bi-chat-quote-fill"></i>
+                  </div>
+                  <div class="testimonials-content">
+                    <p class="testimonial-text">
+                      Model S includes Tesla's latest active safety features, such as Automatic Emergency Braking, at no extra cost.
+                    </p>
+                  </div>
+                  <div class="testimonial-author-box">
+                    <img src="assets/img/bluetesla.jpg" alt="" class="testimonial-avatar" />
+                    <h5 class="testimonial-author">GMC Sierra</h5>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- End carousel item -->
           </div>
+          <!-- End carousel item -->
         </div>
-        <div class="testimonial-carousel-pagination carousel-pagination"></div>
       </div>
-    </section>
-    <!-- End Testimonials Section -->
+      <div class="testimonial-carousel-pagination carousel-pagination"></div>
+    </div>
+  </section>
+  <!-- End Testimonials Section -->
   </main>
   <!-- End #main -->
 

@@ -42,9 +42,9 @@
                         <div class="row">
 
 
-                            <!-- Email input -->
+                            <!-- Hidden churva -->
 
-
+                            <input type="hidden" name="car_id" value="{{$carId}}">
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
@@ -78,6 +78,7 @@
                             <button type="submit" class="btn btn-primary btn-block mb-4">
                                 Buy
                             </button>
+
 
                             <!-- Register buttons -->
                             <div class="text-center">
