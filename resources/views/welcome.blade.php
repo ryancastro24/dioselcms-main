@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-  <title>carforyou</title>
+  <title>VroomVista</title>
   <meta content="" name="description" />
   <meta content="" name="keywords" />
 
@@ -35,47 +35,66 @@
   ======================================================== -->
 </head>
 
-<body style="background-color: #595959;">
-  <!-- ======= Property Search Section ======= -->
-  <div class="click-closed"></div>
-  <!--/ Form Search Star /-->
-  <form id="message_search_form">
-    <div class="row">
-      <div class="col-sm-2">
-        <label for="">Search:</label>
-      </div>
-      <div class="col-sm-8">
-        <input class="form-control" type="text" name="keyword" />
-      </div>
-      <div class="col-sm-2 d-flex justify-content-center">
-        <button class="btn btn-primary" type="submit">Search</button>
+
+<body style="background-color: #f3f3f3;">
+  <!-- Topbar Start -->
+  <div class="container-fluid sticky-top px-0">
+    <div class="container-fluid topbar bg-secondary d-none d-lg-block">
+      <div class="container px-0">
+        <div class="topbar-top d-flex justify-content-between flex-lg-wrap">
+          <div class="top-info flex-grow-0">
+            <span class="rounded-circle btn-sm-square bg-primary me-2">
+              <i class="fas fa-bolt text-white"></i>
+            </span>
+            <div class="pe-2 me-3 border-end border-white d-flex align-items-center">
+              <p class="mb-0 text-white fs-6 fw-normal">Promo</p>
+            </div>
+            <div class="overflow-hidden" style="width: 735px;">
+              <div id="note" class="ps-2">
+                <!-- <img src="img/features-fashion.jpg" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt=""> -->
+                <i class="fas fa-tags" style="width: 30px; height: 18px;"></i>
+                <a href="#">
+                  <p class="text-light mb-0 link-hover">Toyota Rush is now 10% discount until April 30</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="top-link flex-lg-wrap">
+            <i class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2"> <span class="text-body" id="currentDate"></span></i>
+          </div>
+        </div>
       </div>
     </div>
-  </form>
-  <!-- End Property Search Section -->>
+  </div>
+  <!-- Topbar End -->
+
   <!-- ======= Header/Navbar ======= -->
-  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top" style="padding-top: 5px; padding-bottom: 5px">
+  <nav class="navbar navbar-light navbar-expand-lg">
     <div class="container">
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- Navbar Brand -->
+      <a class="navbar-brand text-brand" href="index.html">Vroom<span class="color-b">Vista</span></a>
+      <!-- Navbar Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html">Carfor<span class="color-b">U</span></a>
-
+      <!-- Navbar Collapse -->
       <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
         <ul class="navbar-nav">
+          <!-- Navigation Links -->
+
           <li class="nav-item">
             <a class="nav-link" href="{{route('home')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('vehicles') }}">Vehicles</a>
+            <a class="nav-link" href="{{ route('vehicles') }}">Cars</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('dealers') }}">Dealers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('caradmin') }}">Caradmin</a>
+            <a class="nav-link" href="{{ route('caradmin') }}">AutoStore</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('admin') }}">Admin</a>
@@ -87,20 +106,14 @@
       <div class="d-flex justify-content-evenly">
         @guest
 
-        <a href="{{ route('login') }}" class="primary-btn" style="
-        background-color: #2eca6a;
-        color: rgb(255, 255, 255);
-        text-decoration: none;
-        display: block;
-        padding: 5px;
-      ">
+        <a href="{{ route('login') }}" class="btn btn-outline-secondary">
           Login
         </a>
 
         @else
 
         <!-- User is logged in -->
-        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+        <a href="{{ route('logout') }}" class="btn btn-outline-secondary" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
           Logout
         </a>
@@ -117,37 +130,67 @@
   <!-- ======= Intro Section ======= -->
   <div class="intro intro-carousel swiper position-relative">
     <div class="swiper-wrapper">
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/home.png)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/cars/c1.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
             <div class="container">
               <div class="row">
-                <div class="col-lg-8"></div>
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                    <h1 class="intro-title mb-4">
+                      <span class="color-b">Start Your Journey:</span> <br />
+                      Where Quality Meets Adventure.
+                    </h1>
+                    <p class="intro-subtitle intro-price">
+                      <a href="#"><span class="price-a">Find Your Dream Ride Today! </span></a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/carwhite.png)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/cars/c2.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
             <div class="container">
               <div class="row">
-                <div class="col-lg-8"></div>
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                    <h1 class="intro-title mb-4">
+                      <span class="color-b">Chart Your Course: </span> <br />
+                      Where Excellence Drives Every Mile.
+                    </h1>
+                    <p class="intro-subtitle intro-price">
+                      <a href="#"><span class="price-a">Discover Your Perfect Vehicle!</span></a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/redcar.png)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/cars/tesla1.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
             <div class="container">
               <div class="row">
-                <div class="col-lg-8"></div>
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                    <h1 class="intro-title mb-4">
+                      <span class="color-b">Navigate Your Dreams: </span> <br />
+                      Where Innovation Lead the Way.
+                    </h1>
+                    <p class="intro-subtitle intro-price">
+                      <a href="#"><span class="price-a"> Your Ideal Car Awaits!</span></a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -156,303 +199,136 @@
     </div>
     <div class="swiper-pagination"></div>
   </div>
-
-
   <!-- End Intro Section -->
 
   <main id="main">
-    <!-- ======= Services Section ======= -->
-
-    <!-- ======= Latest Properties Section ======= -->
-    <section class="section-property section-t8">
+    <!-- Services Start -->
+    <section class="container-xxl py-5">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="title-wrap d-flex justify-content-between">
-              <div class="title-box">
-                <h2 class="title-a text-white">TOP 3 SOLD CARS</h2>
+        <div class="row g-5">
+          <h1 class="text-center"><span class="text-dark">Featured</span> <span class="color-b">Services</span></h1>
+          <div class="col-lg-6 pt-4" style="min-height: 400px;">
+            <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s">
+              <img class="position-absolute img-fluid w-100 h-100" src="assets/img/s1.jpg" style="object-fit: cover;" alt="">
+              <div class="position-absolute top-0 end-0 mt-n4 me-n4 py-4 px-5" style="background: rgba(0, 0, 0, .08);">
+                <h1 class="display-4 text-white mb-0">0%
+                </h1>
+                <h4 class="text-white">Installment</h4>
               </div>
             </div>
           </div>
+          <div class="col-lg-6">
+            <h4 class="text-uppercase">0% INSTALLMENT</h4>
+            <p class="mb-4">
+              Enjoy 0% Installment up to 6 months* using your Toyota Mastercard or other Metrobank Credit Card when you avail of General Repair or Body & Paint services at any Authorized Toyota Dealer nationwide. *Terms and Conditions apply</p>
+            <div class="row g-4 mb-3 pb-3">
+              <div class="col-12 wow fadeIn move-right" data-wow-delay="0.1s">
+                <div class="d-flex">
+                  <div class="d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px;">
+                    <!-- <span class="fw-bold text-secondary">01</span> -->
+                    <i class="fa fa-tools fa-3x text-primary flex-shrink-0"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>VroomVista Express Maintenance</h6>
+                    <span>Offers swift and efficient services to keep your vehicles in optimal condition, ensuring a hassle-free and timely experience for routine upkeep.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 wow fadeIn move-right" data-wow-delay="0.3s">
+                <div class="d-flex">
+                  <div class="d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px;">
+                    <!-- <span class="fw-bold text-secondary">02</span> -->
+                    <i class="fa fa-users-cog fa-3x text-primary flex-shrink-0"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>VroomVista Air Care</h6>
+                    <span>Provides comprehensive air quality solutions, ensuring clean and healthy indoor environments.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 wow fadeIn move-right" data-wow-delay="0.5s">
+                <div class="d-flex">
+                  <div class="d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px;">
+                    <!-- <span class="fw-bold text-secondary">03</span> -->
+                    <i class="fa fa-certificate fa-3x text-primary flex-shrink-0"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>VroomVista Smile</h6>
+                    <span>Specializes in enhancing your car's appearance and performance, delivering top-notch detailing and maintenance services.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="" class="btn btn-secondary py-3 px-5">Read More<i class="fa fa-arrow-right ms-3"></i></a>
+          </div>
         </div>
+      </div>
+    </section>
+    <!-- Services End -->
 
-
-
-
-        <div id="property-carousel" class="swiper">
-
-
-          <div class="swiper-wrapper">
-
-
+    <!-- Featured Cars Start -->
+    <section>
+      <div>
+        <h1 class="text-center mt-5"><span class="text-dark">Featured</span> <span class="color-b">Cars</span></h1>
+      </div>
+      <div class="container-fluid bg-white bg-image">
+        <div class="container py-5">
+          <div class="row justify-content-center g-4 mt-3">
             @foreach($cars as $car)
-            <div class="carousel-item-b swiper-slide">
-              <div style="height: 200px;" class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img width="100%" src="{{ asset('storage/carscontainer/' . $car->image) }}" alt="" class="img-a img-fluid" />
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="SUV1.html">
-                          {{$car->model_name}}
-                        </a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <div class="price-box d-flex">
-                        <span class="price-a">price | {{$car->price}}</span>
-                      </div>
-                      <a href="{{route('cardetail',['id' => $car->inventory_id])}}" class="link-a">Click here to view
-                        <span class="bi bi-chevron-right"></span>
-                      </a>
-                    </div>
-                    <div class="card-footer-a">
-                      <ul class="card-info d-flex justify-content-around">
-                        <li>
-                          <h4 class="card-info-title">Vehicle</h4>
-                          <span>{{$car->body_style}}</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Brand</h4>
-                          <span>{{$car->brand_name}}</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Model</h4>
-                          <span>{{$car->model_name}}</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Color</h4>
-                          <span>{{$car->color}}</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
+            <div class="col-lg-3 mt-3 card p-0 me-4 image-box">
+              <img src="{{ asset('storage/carscontainer/' . $car->image) }}" height="200px" class="card-img-top" alt="...">
+              <div class="card-body text-center">
+                <h6 class="card-title color-b">{{$car->model_name}}</h6>
+                <hr>
+                <span class="float-start">{{$car->body_style}}</span> <span class="float-end">{{$car->brand_name}}</span>
               </div>
-
             </div>
-
             @endforeach
-
-
-            <!-- End carousel item -->
           </div>
         </div>
-        <div class="propery-carousel-pagination carousel-pagination"></div>
       </div>
     </section>
-    <!-- End Latest Properties Section -->
-
-    <!-- ======= Dealers ======= -->
 
 
-    <section class="agents-grid grid">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="title-wrap d-flex justify-content-between">
-              <div class="title-box">
-                <h2 class="title-a text-white">TOP 3 DEALERS</h2>
+    <!-- Featured Cars End -->
+
+
+    <!-- Featured Dealers -->
+    <!-- Featured Cars Start -->
+    <section>
+      <div>
+        <h1 class="text-center mt-5"><span class="text-dark">Featured</span> <span class="color-b">Dealers</span></h1>
+      </div>
+      <div class="container-fluid bg-white bg-image">
+        <div class="container py-5">
+          <div class="row justify-content-center g-4 mt-3">
+            @foreach($users as $user)
+            <div class="col-lg-3 mt-3 card p-0 me-4 image-box">
+              <img src="{{ asset('storage/dealercontainer/' . $user->image) }}" height="350px" width="400px" class="card-img-top" alt="...">
+              <div class="card-body text-center">
+                <h6 class="card-title color-b mt-2">{{$user->name}}</h6>
+                <hr>
+                <span class="float-start"><strong>Email:</strong> {{$user->email}}</span>
               </div>
             </div>
+            @endforeach
           </div>
-          @foreach($users as $user)
-          <div class="col-md-4">
-            <div class="card-box-d">
-              <div class="card-img-d">
-                <img src="{{ asset('storage/dealercontainer/' . $user->image) }}" class="rounded-circle mx-auto d-block" alt="" height="300px" width="300px" />
-              </div>
-              <div class="card-overlay card-overlay-hover">
-                <div class="card-header-d">
-                  <div class="card-title-d align-self-center">
-                    <h3 class="title-d">
-                      <a href="angelie.html" class="link-two">{{$user->name}}<br /> </a>
-                    </h3>
-                  </div>
-                </div>
-                <div class="card-body-d">
-                  <p class="content-d color-text-a">
-                    Sed porttitor lectus nibh, Cras ultricies ligula sed magna
-                    dictum porta two.
-                  </p>
-                  <div class="info-agents color-a">
-                    <p><strong>Email: </strong> {{$user->email}}</p>
-                  </div>
-                </div>
-                <div class="card-footer-d">
-                  <div class="socials-footer d-flex justify-content-center">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="https://www.facebook.com/angelie.maribao.7" target="_blank" class="link-one">
-                          <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          @endforeach
-
         </div>
-      </div>
-      </div>
-      </div>
-      </div>
-
-      </div>
       </div>
     </section>
 
 
 
-    <!-- End Agents Grid-->
-  </main>
-  <!-- End #main -->
-
-  <!-- ======= Testimonials Section ======= -->
-  <section class="section-testimonials section-t8 nav-arrow-a">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="title-wrap d-flex justify-content-between">
-            <div class="title-box">
-              <h2 class="title-a text-white">Latest Cars</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="testimonial-carousel" class="swiper">
-        <div class="swiper-wrapper">
-          <div class="carousel-item-a swiper-slide">
-            <div class="testimonials-box">
-              <div class="row">
-                <div class="col-sm-12 col-md-6">
-                  <div class="testimonial-img">
-                    <img src="assets/img/chevrolet.jpg" alt="" class="img-fluid" />
-                  </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                  <div class="testimonial-ico">
-                    <i class="bi bi-chat-quote-fill"></i>
-                  </div>
-                  <div class="testimonials-content">
-                    <p class="testimonial-text">
-                      The Chevrolet Traverse is a midsize SUV made by
-                      General Motors released on January 12, 2024.
-                    </p>
-                  </div>
-                  <div class="testimonial-author-box">
-                    <img src="assets/img/chevrolet.jpg" alt="" class="testimonial-avatar" />
-                    <h5 class="testimonial-author text-white">Chevrolet Traverse</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End carousel item -->
-
-          <div class="carousel-item-a swiper-slide">
-            <div class="testimonials-box">
-              <div class="row">
-                <div class="col-sm-12 col-md-6">
-                  <div class="testimonial-img">
-                    <img src="assets/img/bluetesla.jpg" alt="" class="img-fluid" />
-                  </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                  <div class="testimonial-ico">
-                    <i class="bi bi-chat-quote-fill"></i>
-                  </div>
-                  <div class="testimonials-content">
-                    <p class="testimonial-text">
-                      Model S includes Tesla's latest active safety features, such as Automatic Emergency Braking, at no extra cost.
-                    </p>
-                  </div>
-                  <div class="testimonial-author-box">
-                    <img src="assets/img/bluetesla.jpg" alt="" class="testimonial-avatar" />
-                    <h5 class="testimonial-author">GMC Sierra</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End carousel item -->
-        </div>
-      </div>
-      <div class="testimonial-carousel-pagination carousel-pagination"></div>
-    </div>
-  </section>
-  <!-- End Testimonials Section -->
   </main>
   <!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <section class="section-footer" style="background-color: #787276">
-  </section>
   <footer>
-    <div class="socials-a">
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a href="https://www.facebook.com/profile.php?id=100004450905212">
-            <i class="bi bi-facebook" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="https://www.facebook.com/profile.php?id=100004450905212">
-            <i class="bi bi-twitter" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="https://www.facebook.com/profile.php?id=100004450905212">
-            <i class="bi bi-instagram" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="https://www.facebook.com/profile.php?id=100004450905212">
-            <i class="bi bi-linkedin" aria-hidden="true"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
     <div class="copyright-footer">
       <p class="copyright color-text-a">
-        <!-- <span class="color-a">EstateAgency</span> All Rights Reserved. -->
+        &copy; Copyright
+        <span class="color-a">VroomVista</span> All Rights Reserved.
       </p>
-    </div>
-    <div class="credits">
-      <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
-          -->
-      Designed by
-      <a href="https://www.facebook.com/profile.php?id=100004450905212">Diosel F. Maguinda</a>
-    </div>
-    </div>
-    </div>
     </div>
   </footer>
   <!-- End  Footer -->

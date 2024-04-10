@@ -4,100 +4,93 @@
 
 
 <main id="main">
-  <!-- ======= Intro Single ======= -->
-  <section class="intro-single">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-8">
-          <div class="title-single-box">
-            <h1 class="title-single">Toyota</h1>
-            <span class="color-text-a">Toyota Rav4</span>
-          </div>
-        </div>
-        <div class="col-md-12 col-lg-4">
-          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end"></nav>
-        </div>
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/cars-bg.jpg);">
+    <div class="container-fluid page-header-inner py-5">
+      <div class="container text-center">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Car Detail</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center text-uppercase">
+            <li class="breadcrumb-item"><a class="text-secondary" href="{{route('home')}}">Home</a></li>
+            <li class="breadcrumb-item " aria-current="page"><a class="text-white active" href="{{route('vehicles')}}">Cars</a></li>
+          </ol>
+        </nav>
       </div>
     </div>
-  </section>
-  <!-- End Intro Single-->
+  </div>
 
-  <!-- =======  SUV1 ======= -->
+  <!-- Page Header End -->
+
+
+  <!-- =======  Car Detail ======= -->
   <section class="property-single nav-arrow-b">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-12">
+        <div class="col-lg-7">
           <div id="property-single-carousel" class="swiper">
             <div class="swiper-wrapper">
-              <div class="carousel-item-b swiper-slide">
-                <img width="500px" src="{{ asset('storage/carscontainer/' . $car->image) }}" alt="" />
-              </div>
-              <div class="carousel-item-b swiper-slide">
-                <img width="500px" src="{{ asset('storage/carscontainer/' . $car->image) }}" alt="" />
+              <div>
+                <img width="550px" height="500px" src="{{ asset('storage/carscontainer/' . $car->image) }}" alt="" />
               </div>
             </div>
           </div>
-          <div class="property-single-carousel-pagination carousel-pagination"></div>
+          <div></div>
         </div>
-      </div>
 
-      <div class="col-sm-12">
-        <div class="row justify-content-start">
-          <div class="col-md-5 col-lg-4">
+        <div class="col-lg-4">
+          <div class="property-summary justify-content-evenly">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="title-box-d section-t4">
+                  <h3 class="title-d">Summary Specification</h3>
+                </div>
+              </div>
+            </div>
+            <div class="summary-list">
+              <ul class="list">
+                <li class="d-flex justify-content-between">
+                  <strong>Vehicle:</strong>
+                  {{$car->model_name}}
+                </li>
+                <li class="d-flex justify-content-between">
+                  <strong>VIN:</strong>
+                  {{$car->vin}}
+                </li>
+                <li class="d-flex justify-content-between">
+                  <strong>Brand:</strong>
+                  {{$car->brand_name}}
+                </li>
+                <li class="d-flex justify-content-between">
+                  <strong>Model:</strong>
+                  {{$car->model_name}}
+                </li>
+                <li class="d-flex justify-content-between">
+                  <strong>Color:</strong>
+                  {{$car->color}}
+                </li>
+                <li class="d-flex justify-content-between">
+                  <strong>Transmission:</strong>
+                  {{$car->transmission}}
+                </li>
+              </ul>
+            </div>
             <div class="property-price d-flex justify-content-evenly">
               <div class="card-header-c d-flex">
                 <div class="card-title-c align-self-center">
-                  <h5 class="title-c">Price: $26,000</h5>
+                  <h5 class="title-c">Price: ${{$car->price}}</h5>
                 </div>
               </div>
             </div>
-            <a type="submit" class="btn btn-outline-dark flex-shrink-0" href="{{ route('customer',['id' => $car->inventory_id]) }}" type="button">
+            <a class="btn btn-outline-dark" href="{{ route('customer',['id' => $car->inventory_id]) }}">
               <i class="bi-cart-fill me-1"></i>
               Buy
             </a>
-            <div class="property-summary justify-content-evenly">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="title-box-d section-t4">
-                    <h3 class="title-d">Summary Specification</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="summary-list">
-                <ul class="list">
-                  <li class="d-flex justify-content-between">
-                    <strong>Vehicle:</strong>
-                    <strong>{{$car->model_name}}</strong>
-                  </li>
-                  <li class="d-flex justify-content-between">
-                    <strong>VIN:</strong>
-                    <strong>{{$car->vin}}</strong>
-                  </li>
-                  <li class="d-flex justify-content-between">
-                    <strong>Brand:</strong>
-                    <strong>{{$car->brand_name}}</strong>
-                  </li>
-                  <li class="d-flex justify-content-between">
-                    <strong>Model:</strong>
-                    <strong>{{$car->model_name}} </strong>
-                  </li>
-                  <li class="d-flex justify-content-between">
-                    <strong>Color:</strong>
-                    <strong>{{$car->color}} </strong>
-                  </li>
-                  <li class="d-flex justify-content-between">
-                    <strong>Transmission:</strong>
-                    <strong>{{$car->transmission}}</strong>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End of SUV1-->
+  <!-- End of Car Detail-->
 </main>
 
 @endsection

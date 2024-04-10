@@ -5,83 +5,57 @@
 @section('contents')
 
 <main id="main">
-  <!-- ======= Intro Single ======= -->
-  <section class="intro-single">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-8">
-          <div class="title-single-box">
-            <h1 class="title-single text-white">Car Listing</h1>
-            <span class="color-text-a">Grid Properties</span>
-
-            <body style="background-color:  #FFFF;">
-          </div>
-        </div>
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/cars-bg.jpg);">
+    <div class="container-fluid page-header-inner py-5">
+      <div class="container text-center">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Car Listing</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center text-uppercase">
+            <li class="breadcrumb-item"><a class="text-secondary" href="{{route('home')}}">Home</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Cars</li>
+          </ol>
+        </nav>
       </div>
     </div>
-  </section>
-  <!-- End Intro Single-->
+  </div>
 
-  <!-- ======= Property Grid ======= -->
-  <section class="property-grid grid">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="grid-option">
-          </div>
+  <!-- Page Header End -->
+
+
+
+  <!-- Cars Shop Start-->
+  <section>
+    <div class="container-fluid fruite py-5">
+      <div class="container py-3">
+        <div class="col-lg-12 text-center mb-5">
+          <h1>VroomVista's Car Dealers</h1>
         </div>
-
-
-
-
-        @foreach($cars as $car)
-
-        <div class="col-md-4 mt-5">
-          <div class="card card-box-a card-shadow">
-            <div class="img-box-a">
-              <img src="{{ asset('storage/carscontainer/' . $car->image) }}" alt="" class="img-a" width="500" height="200" />
-            </div>
-            <div class="card-overlay">
-              <div class="card-overlay-a-content">
-                <div class="card-header-a">
-                  <h2 class="card-title-a">
-                    <a href="#">{{$car->brand_name}}<br />{{$car->model_name}}</a>
-                  </h2>
-                </div>
-                <div class="card-body-a">
-                  <div class="price-box d-flex">
-                    <span class="price-a">price | ${{$car->price}}</span>
-                  </div>
-                  <a href="{{route('cardetail',['id' => $car->inventory_id])}}" class="link-a">
-                    Click here to view
-                    <span class="bi bi-chevron-right"></span>
-                  </a>
-                </div>
-                <div class="card-footer-a">
-                  <ul class="card-info d-flex justify-content-around">
-                    <li>
-                      <h4 class="card-info-title">Vehicle</h4>
-                      <span>{{$car->body_style}}</span>
-                    </li>
-                    <li>
-                      <h4 class="card-info-title">Brand</h4>
-                      <span>{{$car->brand_name}}</span>
-                    </li>
-                    <li>
-                      <h4 class="card-info-title">Model</h4>
-                      <span>{{$car->model_name}}</span>
-                    </li>
-                  </ul>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+          @foreach($cars as $car)
+          <div class="col mb-4">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img src="{{ asset('storage/carscontainer/' . $car->image) }}" class="img-fluid w-100 rounded-top common-image mx-auto d-block" alt="">
+              </div>
+              <div class="text-light bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$car->model_name}}</div>
+              <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                <h4>{{$car->brand_name}}</h4>
+                <hr>
+                <p class="text-dark">Unbeatable Deals on Wheels!</p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-1">${{$car->price}}</p>
+                  <a href="{{route('cardetail',['id' => $car->inventory_id])}}" class="btn border border-secondary rounded-pill px-1 text-secondary">
+                    <i class="fa fa-shopping-bag me-1 text-secondary"></i> View Car</a>
                 </div>
               </div>
             </div>
           </div>
+          @endforeach
         </div>
-
-
-        @endforeach
-
-
+      </div>
+    </div>
+    </div>
   </section>
   <!-- End Property Grid Single-->
 </main>
