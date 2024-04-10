@@ -38,7 +38,7 @@ Route::post('/login', [AuthController::class, "loginAction"])->name("login");
 Route::post('/registercustomer', [AuthController::class, "registercustomer"])->name("registercustomer");
 
 
-Route::get('/targetcar/{id}', [CarController::class, "cardetial"])->name("cardetail");
+Route::get('/targetcar/{id}', [CarController::class, "cardetail"])->name("cardetail");
 
 
 

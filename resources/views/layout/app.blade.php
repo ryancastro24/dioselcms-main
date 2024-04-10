@@ -3,15 +3,15 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>carforyou</title>
-  <meta content="" name="description" />
-  <meta content="" name="keywords" />
+  <title>VroomVista</title>
+  <meta name="description" content="Your description here" />
+  <meta name="keywords" content="Your keywords here" />
 
   <!-- Favicons -->
-  <link href="assets/img/CAR4U.png" rel="" />
-  <link href="assets/img/CAR4U.png" rel="" />
+  <link rel="icon" href="assets/img/CAR4U.png" />
+  <link rel="apple-touch-icon" href="assets/img/CAR4U.png" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
@@ -24,7 +24,6 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
-
 
   <!-- =======================================================
   * Template Name: EstateAgency
@@ -85,63 +84,29 @@
 
       <!-- Login Form and Dealers Link in the Same Container -->
       <div class="d-flex justify-content-evenly">
-
-
-      @guest
-    
-          <a
-            href="{{ route('login') }}"
-            class="primary-btn"
-            style="
-              background-color: #2eca6a;
-              color: rgb(255, 255, 255);
-              text-decoration: none;
-              display: block;
-              padding: 5px;
-            "
-          >
-            Login
-          </a>
-
-          @else
-
-           <!-- User is logged in -->
-          <a href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-              Logout
-          </a>
-
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-          </form>
-      @endguest
-        </div>
+        @guest
+        <a href="{{ route('login') }}" class="primary-btn" style="background-color: #2eca6a; color: rgb(255, 255, 255); text-decoration: none; display: block; padding: 5px;">
+          Login
+        </a>
+        @else
+        <!-- User is logged in -->
+        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+          Logout
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+        </form>
+        @endguest
+      </div>
       <!-- End of Login Form and Dealers Link Container -->
     </div>
   </nav>
   <!-- End Header/Navbar -->
 
-
-
-
-
-
-
-
   @yield('contents')
 
-
-
-
-
-
-
-
-
   <!-- ======= Footer ======= -->
-  <section class="section-footer" style="background-color: #787276">
-  </section>
+  <section class="section-footer" style="background-color: #787276"></section>
   <footer>
     <div class="socials-a">
       <ul class="list-inline">
@@ -173,17 +138,7 @@
       </p>
     </div>
     <div class="credits">
-      <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
-          -->
-      Designed by
-      <a href="https://www.facebook.com/profile.php?id=100004450905212">Diosel F. Maguinda</a>
-    </div>
-    </div>
-    </div>
+      Designed by <a href="https://www.facebook.com/profile.php?id=100004450905212">Diosel F. Maguinda</a>
     </div>
   </footer>
   <!-- End  Footer -->
